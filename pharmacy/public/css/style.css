@@ -1,0 +1,28 @@
+ .modal-header{
+    background-color: #c6d9ec;
+}
+.modal-body{
+    background-color:#c6d9ec;
+}
+
+
+.modal-body input{
+    text-align: center;
+}
+.modal-dialog{
+    width: 500px;
+    border-radius: 50%;
+    background-color: #fff;
+    border:1px solid #031c35;
+    box-shadow: 2px 2px 20px #99cafa;
+    
+}
+body{
+    background-color:#e0ebeb;
+  }
+  
+.item img{
+    border-radius: 50%;
+    margin:50px;
+
+}

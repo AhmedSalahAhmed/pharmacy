@@ -1,0 +1,41 @@
+body{
+    background-color:#e0ebeb;
+  }
+  
+.item img{
+    border-radius: 50%;
+    margin:50px;
+
+}
+.navbar
+{*position:relative;*z-index:2;margin-bottom:20px;overflow:visible; padding: 30px}
+
+.navbar .container{width:auto}
+
+.navbar .nav{position:relative;right:0;display:block;float:right;margin:0 0 0 10px}
+
+.navbar .nav>li{float:right}
+.navbar .nav>li>a{float:none;padding:10px 15px 10px;color:#777;text-decoration:none;text-shadow:0 1px 0 #fff}
+
+.navbar .nav>li>a:focus,.navbar .nav>li>a:hover{color:#333;text-decoration:none;background-color:transparent}.navbar .nav>.active>a,.navbar .nav>.active>a:hover,.navbar .nav>.active>a:focus{color:#555;text-decoration:none;background-color:#e5e5e5;-webkit-box-shadow:inset 0 3px 8px rgba(0,0,0,0.125);-moz-box-shadow:inset 0 3px 8px rgba(0,0,0,0.125);box-shadow:inset 0 3px 8px rgba(0,0,0,0.125)}
+
+.navbar-nav li a {
+    margin-left: 10px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 400;
+  font-size: 20px
+}
+.modalForm{
+    width:100%;
+}
+.formTd{
+    width: 75%;
+}
+.captionTd{
+    font-size: 18px;
+    width: 25%
+}
+.modalInputs{
+    width:100%;
+}
