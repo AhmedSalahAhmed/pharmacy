@@ -10,8 +10,9 @@
 	<a href="{{route('store.create')}}" class="btn btn-success mb-3">Add New Medicine </a>
 </div>
 
-
-    <table border="2" id="datatable" class="table text-center table-bordered table-striped">
+<!--Comment!-->  
+<!--Comment!-->  
+ <table border="2" id="datatable" class="table text-center table-bordered table-striped">
         <thead>
             <tr>
                 <th scope="col">رقم الدواء</th>
