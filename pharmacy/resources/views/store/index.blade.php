@@ -29,7 +29,7 @@
         <tfoot>
             <tr>
                 <th scope="col">رقم الدواء</th>
-                <th scope="col">اسم الدواء</th>
+                <th scope="col">إسم الدواء</th>
                 <th scope="col"> نوع الدواء</th>
                 <th scope="col">الشركة</th>
                 <th scope="col">الكمية</th>
