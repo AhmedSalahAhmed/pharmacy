@@ -10,34 +10,40 @@
 	<a href="{{route('store.create')}}" class="btn btn-success mb-3">Add New Medicine </a>
 </div>
 
-<!--Comment!-->  
-<!--Comment!-->  
- <table border="2" id="datatable" class="table text-center table-bordered table-striped">
+
+<!-- <table class="table table-bordered table-striped">
+	<tr>
+		<th>Medicine Id</th>
+		<th>Medicine</th>
+		<th>Medicine Type</th>
+		<th>Company</th>
+		<th>Quantaty</th>
+		<th>Price</th>
+		<th>Production Date</th>
+		<th>Expiration Date</th>
+		<th>Action</th>
+
+		
+	</tr>
+ -->
+
+    <table border="2" id="datatable" class="table text-center table-bordered table-striped">
         <thead>
             <tr>
-                <th scope="col">رقم الدواء</th>
-                <th scope="col">إسم الدواء</th>
-                <th scope="col"> نوع الدواء</th>
-                <th scope="col">الشركة</th>
-                <th scope="col">الكمية</th>
-                <th scope="col">سعر البيع</th>
-                <th scope="col">تاريخ الانتاج</th>
-                <th scope="col">تاريخ الانتهاء</th>
-                <th scope="col">عمليات</th>
+                <th scoop="col">رقم الدواء</th>
+                <th scoop="col">اسم الدواء</th>
+                <th scoop="col"> نوع الدواء</th>
+                <th scoop="col">الشركة</th>
+                <th scoop="col">الكمية</th>
+                <th scoop="col">سعر البيع</th>
+                <th scoop="col">تاريخ الانتاج</th>
+                <th scoop="col">تاريخ الانتهاء</th>
+                <th scoop="col">عمليات</th>
             </tr>
         </thead>
 
         <tfoot>
             <tr>
-                <th scope="col">رقم الدواء</th>
-                <th scope="col">إسم الدواء</th>
-                <th scope="col"> نوع الدواء</th>
-                <th scope="col">الشركة</th>
-                <th scope="col">الكمية</th>
-                <th scope="col">سعر البيع</th>
-                <th scope="col">تاريخ الانتاج</th>
-                <th scope="col">تاريخ الانتهاء</th>
-                <th scope="col">عمليات</th>
             </tr>
         </tfoot>
 
@@ -67,7 +73,58 @@
 {!!$data->links()!!}
 
 
-    <button class="btn btn-success"  data-toggle="modal" data-target="#mymodal" class="btn btn-info" > تعديل</button>
+
+       <!--  
+   <td > <button class="btn btn-info"  data-toggle="modal" data-target="#mymodal" class="btn btn-info" > اضافه</button>
+        <div id="mymodal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content"> 
+                    <div class="modal-header"> 
+        <button class="close" data-dismiss="modal" > &times;</button>
+        <h3><i class="modal-title"> WELCOME TO ADD BAGE </i> </h3>
+                    </div>
+                        <div class="modal-body"> 
+                            
+                                <form class="form-group">
+                                    <p>
+                                رقم الدواء :<input class="form-control" type="text">
+                                        <br>
+                                        <p>
+                     
+                      اسم الدواء:<input class="form-control" type="text">
+                   <br>
+                   <p>
+
+                      نوع الدواء:<input class="form-control" type="text">
+                   <br>
+                   <p>
+                      كمية الدواء:<input class="form-control" type="text">
+                   <br>
+                   <p>
+
+                        تاريخ الانتاج:<input class="form-control" type="text"></form>
+
+<br>
+<p>
+
+                       تاريخ الانتهاء :<input class="form-control" type="text"></form>
+                سعر البيع:<input class="form-control" type="text">
+                      <br>
+                      <p>
+            الشركه:<input class="form-control" type="text"></form>
+
+            <br>
+            <p>
+                    <button class="btn form-control btn-info"> ADD</button>       
+                        </div> 
+                           
+        
+                                
+                       
+                    
+                </div>
+            </div>
+        --> 
     <div id="editModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content"> 
@@ -75,73 +132,116 @@
     <button class="close" data-dismiss="modal" > &times;</button>
                 </div>
                     <div class="modal-body"> 
-                        <form method="post" id="editForm" action="store.update" enctype="multipart/form-data">
+                        <form method="post" id="editForm" action="/store" enctype="multipart/form-data">
 						@csrf
                         @method('PATCH')
-                        
                             <table class="modalTable table text-center">
                                 <tr>
                                     <td class="captionTd"> رقم المنتج </td>
                                     <td class="fromTd" >
-                                        <input type="text" id="mednum" class="modalInputs form-control"/>                                                                        
+                                        <input type="text" name="medicineId" id="mednum" class="modalInputs form-control"/>                                                                        
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="captionTd"> اسم المنتج </td>
                                     <td class="fromTd">
-                                        <input type="text" id="medname" class="modalInputs form-control"/>                                    
+                                        <input type="text" name="medicine" id="medname" class="modalInputs form-control"/>                                    
                                     </td>
                                 </tr>
                                 <tr>
                                         <td class="captionTd"> نوع المنتج </td>
                                     <td class="fromTd">
-                                        <input type="text" id="medtype" class="form-control modalInputs"/>                                    
+                                        <input type="text" id="medtype" name="mType" class="form-control modalInputs"/>                                    
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="captionTd"> الشركة </td>
                                     <td class="fromTd">
-                                        <input type="text" id="medcom" class="form-control modalInputs"/>                                    
+                                        <input type="text" id="medcom" name="company" class="form-control modalInputs"/>                                    
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="captionTd"> الكمية </td>
                                     <td class="fromTd">
-                                        <input type="text" id="medqty" class="form-control modalInputs"/>                                
+                                        <input type="text" id="medqty" name="qty" class="form-control modalInputs"/>                                
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="captionTd"> سعر المنتج  </td>
                                     <td class="fromTd">
-                                        <input type="text" id="medprice" class="form-control modalInputs"/>                            
+                                        <input type="text" id="medprice" name="price" class="form-control modalInputs"/>                            
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="captionTd"> تاريخ الانتاج  </td>
                                     <td class="fromTd">
-                                        <input type="text" id="meddate" class="form-control modalInputs"/>                            
+                                        <input type="text" id="meddate" name="proDate" class="form-control modalInputs"/>                            
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="captionTd"> تاريخ الانتهاء  </td>
                                     <td class="fromTd">
-                                        <input type="text" id="medexp" class="form-control modalInputs"/>                            
+                                        <input type="text" id="medexp" name="exDate" class="form-control modalInputs"/>                            
                                     </td>
                                 </tr>
                             </table>
-							
+						    <button class="btn form-control btn-info"> Update Data</button> 							
 						</form>
-						    <button class="btn form-control btn-info"> Update Data</button> 
 						 
 					</div>
 				</div>
 	        </div>				    
 	    </div>
 
+     <!-- <button class="btn btn-danger" button data-toggle="modal" data-target="#mymodal" class="btn btn-info" > حذف</button>
+     <div id="mymodal" class="modal fade" role="dialog">
+         <div class="modal-dialog">
+             <div class="modal-content"> 
+                 <div class="modal-header"> 
+     <button class="close" data-dismiss="modal" > &times;</button>
+     <h3><i class="modal-title"> WELCOME TO ADD BAGE</i> </h3>
+                 </div>
+                     <div class="modal-body"> 
+                            <form class="form-group">
+                                <p>
+                                    اسم الدواء:<input type="text" class="form-control"/>
+                                    <br>
+                 <p>
+                  اسم الدواء  : <input type="text" class="form-control"/>
+               <br>
+               <p>
+                  اسم الدواء  : <input type="text"class="form-control"/>
+               <br>
+               <p>
+                  اسم الدواء:  <input type="text"class="form-control"/>
+               <br>
+               <p>
+
+                  اسم الدواء:  <input type="text"class="form-control"/>
+                  <br>
+                  <p>
+                  اسم الدواء:<input type="text" class="form-control"/><br></form>
+                  <br>
+                  <p> 
+                  <button class="btn form-control btn-info"> ADD</button>
+                     </div> 
+                        
+                    
+                 
+             </div>
+         </div>
+     
+     </div> 
+ -->
+    
+
+
+
+
 
         
    
     
-      <div> "ماب   1   الورديه"  </div>  
+      <!-- <div> "ماب   1   الورديه"  </div>   -->
 
 @endsection
