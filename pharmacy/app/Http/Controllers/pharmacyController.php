@@ -12,6 +12,12 @@ class pharmacyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         
@@ -138,7 +144,7 @@ class pharmacyController extends Controller
             'phone' => $request->phone
         );
 
-        pharmacy::whereId($id)->update($form_data);
+        pharmacy::where('pharmaciesId',$request->pharmaciesId)->update($form_data);
         return redirect('pharmacy')->with('success','Successed Update');
     }
 
