@@ -2,13 +2,13 @@
 <html dir="rtl">
 <head>
 	<title>
-		Store
+		
 	</title>
 	<link href="{{ asset('css/app.css') }}" rel="stylesheet"/>
 	<link href="{{ asset('css/font-awesome.css')}}" rel="stylesheet">
 	<link href="{{ asset('css/style.css')}}" rel="stylesheet"/>
 	<link href="{{ asset('css/s.css')}}" rel="stylesheet">
-	<link href="{{ asset('css/dataTables.bootstrap4.min.css')}}" rel="stylesheet"/>
+	<link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet"/>
 
 </head>
 <body>
@@ -20,8 +20,9 @@
 </div>
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/jquery-2.2.1.min.js.js') }}"></script>
-<script src="{{ asset('js/jquery.dataTables.min.js')}}"></script>
-<script src="{{ asset('js/dataTables.bootstrap4.min.js')}}"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript" src="{{URL::to('/')}}/public/js/bootstrap.min.js"></script>
 <script>
 
 $(document).ready(function(){
@@ -45,7 +46,7 @@ $(document).ready(function(){
 		$('#meddate').val(data[6]);
 		$('#medexp').val(data[7]);
 
-		$('#editForm').attr('action','{{route("store.update",'+data[0]+')}}');
+		$('#editForm').attr('action',"{{route('store.update',"data[0]")}}");
 		$('#editModal').modal('show');
 	})
 });
