@@ -24,3 +24,7 @@ Route::resource('sales','salesController');
 Route::resource('pharmacy','pharmacyController');
 Route::get('/search','pharmacyController@search');
 Route::resource('daterange','DateRangeController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -1,4 +1,4 @@
-@extends('store.mngNav')
+@extends('mngNav')
 @section('main')
 @if($message = Session::get('success'))
 <div class="alert alert-success">
@@ -10,7 +10,7 @@
 	<a href="#" data-toggle="modal" data-target="#addModal" class="btn btn-success mb-3">Add New Medicine </a>
 </div>
 
-    <table border="2" id="datatable" class="table text-center table-bordered table-striped">
+    <table id="datatable" class="table text-center table-bordered table-striped">
         <thead>
             <tr>
                 <th scoop="col">رقم الدواء</th>
@@ -196,55 +196,8 @@
 	        </div>				    
 	    </div>
 
-     <!-- <button class="btn btn-danger" button data-toggle="modal" data-target="#mymodal" class="btn btn-info" > حذف</button>
-     <div id="mymodal" class="modal fade" role="dialog">
-         <div class="modal-dialog">
-             <div class="modal-content"> 
-                 <div class="modal-header"> 
-     <button class="close" data-dismiss="modal" > &times;</button>
-     <h3><i class="modal-title"> WELCOME TO ADD BAGE</i> </h3>
-                 </div>
-                     <div class="modal-body"> 
-                            <form class="form-group">
-                                <p>
-                                    اسم الدواء:<input type="text" class="form-control"/>
-                                    <br>
-                 <p>
-                  اسم الدواء  : <input type="text" class="form-control"/>
-               <br>
-               <p>
-                  اسم الدواء  : <input type="text"class="form-control"/>
-               <br>
-               <p>
-                  اسم الدواء:  <input type="text"class="form-control"/>
-               <br>
-               <p>
+     <!-- ********** -->
 
-                  اسم الدواء:  <input type="text"class="form-control"/>
-                  <br>
-                  <p>
-                  اسم الدواء:<input type="text" class="form-control"/><br></form>
-                  <br>
-                  <p> 
-                  <button class="btn form-control btn-info"> ADD</button>
-                     </div> 
-                        
-                    
-                 
-             </div>
-         </div>
-     
-     </div> 
- -->
-    
-
-
-
-
-
-        
-   
-    
       <!-- <div> "ماب   1   الورديه"  </div>   -->
 
 @endsection

@@ -27,7 +27,7 @@
 
 $(document).ready(function(){
 	var table = $("#datatable").DataTable();
-	//start edit record
+//start store edit record
 	table.on('click','.edit',function(){
 		$tr = $(this).closest('tr');
 		if($($tr).hasClass('child')){
@@ -46,11 +46,46 @@ $(document).ready(function(){
 		$('#meddate').val(data[6]);
 		$('#medexp').val(data[7]);
 
+
+		$('#pharmaciesId').val(data[0]);
+		$('#phName').val(data[1]);
+		$('#address').val(data[2]);
+		$('#phAdmin').val(data[3]);
+		$('#email').val(data[4]);
+		$('#password').val(data[5]);
+		$('#phone').val(data[6]);
+
 		$('#editForm').attr('action',"{{route('store.update',"data[0]")}}");
+		$('#pharmacyForm').attr('action',"{{route('pharmacy.update',"data[0]")}}");
 		$('#editModal').modal('show');
 	})
 });
-//end edit modal
+//end store edit modal
+
+//start pharmacy edit record
+// 	table.on('click','.edit',function(){
+// 		$tr = $(this).closest('tr');
+// 		if($($tr).hasClass('child')){
+// 			$tr = $tr.prev('.parent')
+// 		}
+
+// 		var data = table.row($tr).data();
+// 		console.log(data);
+
+// 		$('#pharmaciesId').val(data[0]);
+// 		$('#phName').val(data[1]);
+// 		$('#address').val(data[2]);
+// 		$('#phAdmin').val(data[3]);
+// 		$('#email').val(data[4]);
+// 		$('#password').val(data[5]);
+// 		$('#phone').val(data[6]);
+
+// 		$('#pharmacyForm').attr('action',"{{route('pharmacy.update',"data[0]")}}");
+// 		$('#editModal').modal('show');
+// 	})
+// });
+//end pharmacy edit modal
+
 </script>
 </body>
 </html>
