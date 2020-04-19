@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use DB;
+use App\Quotation;
 use Illuminate\Http\Request;
 use App\store;
 class storesController extends Controller
@@ -72,9 +73,12 @@ class storesController extends Controller
      */
     public function show($id)
     {
+        DB::enableQueryLog();
+        
         $data = store::findOrFail($id);
         return view('store.view',compact('data'));
         
+        dd(DB::getQueryLog());
     }
 
     /**
@@ -99,7 +103,7 @@ class storesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+//        DB::enableQueryLog();
               $request->validate([
             'medicineId'=>'required',
             'medicine' => 'required',
@@ -122,8 +126,9 @@ class storesController extends Controller
             'proDate' => $request->proDate,
             'exDate' => $request->exDate
         );
-        store::whereId($id)->update($form_data);
+        store::where('medicineId',$request->medicineId)->update($form_data);
         return redirect('store')->with('success','Successed Update');
+        //dd(DB::getQueryLog());
 }
 
 
