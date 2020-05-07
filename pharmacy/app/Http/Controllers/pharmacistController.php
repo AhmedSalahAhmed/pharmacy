@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\pharmacist;
 
-class pharmacistsController extends Controller
+class pharmacistController extends Controller
 
 {
     /**
@@ -16,16 +16,16 @@ class pharmacistsController extends Controller
 
      public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth:pharmacist');
     }
 
     public function index()
     {
-        $data = pharmacist::latest()->paginate(5);
-        return view('pharmacist.index',compact('data'))
-        ->with('i',(request()->input('page',1)-1)*5);
-
-        }
+        // $data = pharmacist::latest()->paginate(5);
+        // return view('pharmacist.index',compact('data'))
+        // ->with('i',(request()->input('page',1)-1)*5);
+        return view('pharmacist');
+    }
 
     /**
      * Show the form for creating a new resource.

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePharmacistsTable extends Migration
+class CreateAdminsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreatePharmacistsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pharmacists', function (Blueprint $table) {
+        Schema::create('admins', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('pharmacistName');
-            $table->string('phoneNum');
-            $table->string('duration');
-            $table->string('userName')->unique();
+            $table->string('name');
+            $table->string('pharmacy')->unique();
+            $table->integer('phone');
             $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->timestamps();
         });
@@ -32,6 +32,6 @@ class CreatePharmacistsTable extends Migration
      */
     public function down()
     {
-      //  Schema::dropIfExists('pharmacists');
+        Schema::dropIfExists('admins');
     }
 }
