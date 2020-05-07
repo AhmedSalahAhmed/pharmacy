@@ -6,18 +6,18 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class pharmacist extends Authenticatable
+class Admin extends Authenticatable
 {
     use Notifiable;
 
-	protected $guard = 'pharmacist';
+    protected $guard = 'admin';
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'pharmacistName', 'email', 'phoneNum','duration','userName','password'
+        'name', 'email', 'password', 'pharmacy', 'phone',
     ];
 
     /**
