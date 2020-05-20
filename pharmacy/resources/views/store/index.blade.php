@@ -1,10 +1,6 @@
 @extends('mngNav')
 @section('main')
-@if($message = Session::get('success'))
-<div class="alert alert-success">
-	<p>{{$message}}</p>
-</div>
-@endif
+
 
 <div class="text-right">
 	<a href="#" data-toggle="modal" data-target="#addModal" class="btn btn-success mb-3">Add New Medicine </a>

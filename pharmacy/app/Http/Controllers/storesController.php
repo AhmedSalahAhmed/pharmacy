@@ -5,6 +5,7 @@ use DB;
 use App\Quotation;
 use Illuminate\Http\Request;
 use App\store;
+use Session;
 class storesController extends Controller
 {
     /**
@@ -15,7 +16,7 @@ class storesController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-    }
+    } 
     
     public function index()
     {
@@ -66,7 +67,8 @@ class storesController extends Controller
         'exDate'       =>$request->exDate
         );
         store::create($form_data);
-        return redirect('store')->with('success','succsed insert');
+        session::flash('statuscode','success');
+        return redirect('store')->with('status','This Data Has Been Added');
     
     }
 
@@ -132,7 +134,8 @@ class storesController extends Controller
             'exDate' => $request->exDate
         );
         store::where('medicineId',$request->medicineId)->update($form_data);
-        return redirect('store')->with('success','Successed Update');
+        session::flash('statuscode','info');
+        return redirect('store')->with('status','This Data Has Been Updated');
         //dd(DB::getQueryLog());
 }
 
@@ -153,7 +156,8 @@ class storesController extends Controller
     {
         $data = store::findOrFail($id);
         $data->delete();
-        return redirect('store')->with('success','Deleted');
+        session::flash('statuscode','error');
+        return redirect('store')->with('status','This Data Has Been Deleted');
     
     }
 }
