@@ -18,6 +18,23 @@
 	@yield('main')
 
 </div>
+
+<script src="{{ asset('js/sweetalert2.js') }}"></script>
+
+<script>
+@if (session('status'))
+//alert('{{ session('status') }}');
+swal({
+  title: '{{ session('status') }}',
+  text: "You clicked the button!",
+  icon: '{{ session('statuscode') }}',
+   button: "ok",
+
+});
+@endif
+</script>
+
+
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/jquery-2.2.1.min.js.js') }}"></script>
 <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
