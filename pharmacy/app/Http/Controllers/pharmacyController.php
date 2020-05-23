@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\pharmacy;
 use DB;
+use Session;
 class pharmacyController extends Controller
 {
     /**
@@ -83,7 +84,8 @@ class pharmacyController extends Controller
             'phone' => $request->phone
         );
         pharmacy::create($form_data);
-        return redirect('pharmacy')->with('success','Successeded insert');
+        session::flash('statuscode','success');
+        return redirect('pharmacy')->with('status','This Data Has Been Added');
     
     }
 
@@ -145,7 +147,8 @@ class pharmacyController extends Controller
         );
 
         pharmacy::where('pharmaciesId',$request->pharmaciesId)->update($form_data);
-        return redirect('pharmacy')->with('success','Successed Update');
+        session::flash('statuscode','info');
+        return redirect('pharmacy')->with('status','This Data Has Been Updated');
     }
 
     /**
@@ -159,6 +162,7 @@ class pharmacyController extends Controller
         
         $data = pharmacy::findOrFail($id);
         $data->delete();
-        return redirect('pharmacy')->with('success','Deleted');
+        session::flash('statuscode','error');
+        return redirect('pharmacy')->with('status','This Data Has Been Deleted');
     }
 }
